@@ -4,7 +4,6 @@ import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
-import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -16,10 +15,11 @@ import java.util.Random;
 public class MainActivity extends AppCompatActivity {
 
     private TextView mText;
-    private ArrayList<String> mWords = new ArrayList<String>();
+    private ArrayList<String> mWords = new ArrayList<>();
 
     private Button correctButton;
     private Button incorrectButton;
+    private FloatingActionButton fab;
     private int index = -1;
     private String allWords;
     private EditText editText;
@@ -41,17 +41,19 @@ public class MainActivity extends AppCompatActivity {
         editText = (EditText) v.findViewById(R.id.editText);
         submit = (Button) v.findViewById(R.id.submit);
         editText.setVisibility(View.GONE);
+        editText.setHint(R.string.spell_here);
         submit.setVisibility(View.GONE);
         setOnClicks();
         setSupportActionBar(toolbar);
         final Random generator = new Random();
         popStringArr();
-        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
+        fab = (FloatingActionButton) findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 info.setVisibility(View.GONE);
                 editText.setVisibility(View.GONE);
+                editText.getText().clear();
                 submit.setVisibility(View.GONE);
                 index = generator.nextInt(mWords.size());
                 mText.setText(mWords.get(index));
@@ -127,6 +129,8 @@ public class MainActivity extends AppCompatActivity {
                 for (int i = 0; i < 407; i++) {
                     if (submitted.equals(mWords.get(i))) {
                         text = "Spelled Correctly!";
+                        editText.setVisibility(View.GONE);
+                        submit.setVisibility(View.GONE);
                         break;
                     }
                 }

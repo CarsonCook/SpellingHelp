@@ -39,7 +39,7 @@
         android:layout_below="@+id/incorrect_button"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="29dp"
-        android:text="Spell word here"/>
+        android:hint="@string/spell_here"/>
 
     <TextView
         android:id="@+id/textView"
