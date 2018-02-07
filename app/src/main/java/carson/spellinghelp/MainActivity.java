@@ -19,7 +19,6 @@ public class MainActivity extends AppCompatActivity {
 
     private Button correctButton;
     private Button incorrectButton;
-    private FloatingActionButton fab;
     private int index = -1;
     private String allWords;
     private EditText editText;
@@ -47,8 +46,8 @@ public class MainActivity extends AppCompatActivity {
         setSupportActionBar(toolbar);
         final Random generator = new Random();
         popStringArr();
-        fab = (FloatingActionButton) findViewById(R.id.fab);
-        fab.setOnClickListener(new View.OnClickListener() {
+        Button newWord = (Button) findViewById(R.id.new_word);
+        newWord.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 info.setVisibility(View.GONE);
@@ -126,6 +125,8 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View view) {
                 String submitted = editText.getText().toString();
                 String text = "";
+                submitted = submitted.trim();
+                submitted = submitted.toLowerCase();
                 for (int i = 0; i < 407; i++) {
                     if (submitted.equals(mWords.get(i))) {
                         text = "Spelled Correctly!";

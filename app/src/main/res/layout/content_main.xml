@@ -30,7 +30,16 @@
         android:layout_below="@+id/correct_button"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="17dp"
-        android:text="Spelled Incorrectly"/>
+        android:text="Spelled incorrectly"/>
+
+    <Button
+        android:id="@+id/new_word"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/submit"
+        android:text="New word"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="17dp"/>
 
     <EditText
         android:id="@+id/editText"
@@ -39,6 +48,7 @@
         android:layout_below="@+id/incorrect_button"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="29dp"
+        android:inputType="textNoSuggestions"
         android:hint="@string/spell_here"/>
 
     <TextView
@@ -48,7 +58,6 @@
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="77dp"
-        android:text="Press the Button!"
         android:textColor="@color/colorPrimaryDark"
         android:textSize="40sp"/>
 
@@ -65,7 +74,7 @@
         android:id="@+id/correct"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Spelled Correctly"
+        android:text="Spelled correctly"
         android:textColor="@color/colorPrimary"
         android:textSize="35sp"
         android:layout_marginTop="30dp"
